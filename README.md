@@ -64,7 +64,7 @@ Visit [192.168.100.2:8080](http://192.168.100.2:8080) and create a container wit
     }
   },
   "ipAddress": {
-    "networkName": "foo"
+    "networkName": "proxy"
   },
   "healthChecks": [
     {
