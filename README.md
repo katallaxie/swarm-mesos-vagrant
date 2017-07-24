@@ -58,24 +58,24 @@ Visit [192.168.100.2:8080](http://192.168.100.2:8080) and create a container wit
     "volumes": [],
     "docker": {
       "image": "nginx",
-      "network": "BRIDGE",
-      "portMappings": [],
+      "network": "USER",
       "privileged": false,
-      "parameters": [
-        {
-          "key": "network",
-          "value": "proxy"
-        }
-      ],
       "forcePullImage": false
     }
   },
-  "portDefinitions": [
+  "ipAddress": {
+    "networkName": "foo"
+  },
+  "healthChecks": [
     {
-      "port": 10000,
-      "protocol": "tcp",
-      "name": "default",
-      "labels": {}
+      "gracePeriodSeconds": 300,
+      "intervalSeconds": 60,
+      "timeoutSeconds": 20,
+      "maxConsecutiveFailures": 3,
+      "port": 80,
+      "path": "/",
+      "protocol": "HTTP",
+      "ignoreHttp1xx": false
     }
   ]
 }
